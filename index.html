@@ -1,45 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CAD Art Design — Creative Fabrication Studio</title>
 <meta name="description" content="Custom props, sets, sculpture, installations and immersive environments designed and built in Toronto.">
-<link rel="icon" href="favicon/favicon.ico" sizes="any">
-<link rel="icon" href="favicon/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="favicon/favicon-16.png" sizes="16x16" type="image/png">
-<link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
 <style>
-  @font-face{
-  font-family:'Bounded';
-  src:url('fonts/Bounded-Regular.woff2') format('woff2');
-  font-weight:400;
-  font-style:normal;
-  font-display:swap;
-}
-@font-face{
-  font-family:'Bounded';
-  src:url('fonts/Bounded-Medium.woff2') format('woff2');
-  font-weight:500;
-  font-style:normal;
-  font-display:swap;
-}
-@font-face{
-  font-family:'Bounded';
-  src:url('fonts/Bounded-SemiBold.woff2') format('woff2');
-  font-weight:600;
-  font-style:normal;
-  font-display:swap;
-}
-@font-face{
-  font-family:'Bounded';
-  src:url('fonts/Bounded-Bold.woff2') format('woff2');
-  font-weight:700;
-  font-style:normal;
-  font-display:swap;
-}
-
+ 
   :root{
     --n-800:#070707;
     --n-700:#222222;
@@ -189,12 +156,12 @@
     min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;position:relative;color:var(--n-100);
     background:#050505;overflow:hidden;
   }
-  .hero-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
-  .hero-bg-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.62));}
-  .hero-grid{position:relative;z-index:2;}
+  .hero-video-box{background:#000;overflow:hidden;aspect-ratio:4/3;width:100%;}
+  .hero-video-box video{width:100%;height:100%;object-fit:contain;display:block;}
   .hero-grid{
+    position:relative;z-index:2;
     display:grid;grid-template-columns:1.5fr 1fr;gap:29px;width:100%;max-width:var(--maxw);
-    margin:0 auto;padding:0 24px 0 100px;border-left:2px solid var(--n-100);
+    margin:0 auto;padding:0 24px 0 100px;border-left:2px solid var(--n-100);align-items:center;
   }
   .hero-inner{max-width:600px;}
   .hero .lead{color:var(--n-100);text-transform:uppercase;letter-spacing:.06em;font-size:14px;margin-top:20px;}
@@ -239,12 +206,8 @@
   .credentials h3{margin-bottom:12px;}
   .credentials p{font-size:14.5px;color:var(--n-600);}
 
-  /* ABOUT ROW — video + text side by side */
-  .about-row{display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:start;margin-bottom:40px;}
-  .about-images{position:relative;width:100%;min-height:420px;overflow:hidden;background:var(--n-100);}
-  .about-images video.img-back{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
-  html[data-theme="dark"] .about-images{background:var(--dm-bg);border-color:var(--dm-line);}
-  html[data-theme="dark"] .about-images video.img-back{filter:invert(1);}
+  /* ABOUT ROW — text only (video removed) */
+  .about-row{margin-bottom:40px;}
   .about-text-col{display:flex;flex-direction:column;gap:24px;}
   .about-text-col .about-top{margin-bottom:0;}
   .about-text-col .lang-copy{display:block;grid-template-columns:none;margin-bottom:0;}
@@ -254,28 +217,25 @@
   .logo-wall-intro{max-width:640px;margin:-8px 0 40px;font-size:15px;color:var(--n-600);}
   .logo-marquee{
     position:relative;overflow:hidden;border-top:1px solid var(--n-300);border-bottom:1px solid var(--n-300);
-    position:relative;overflow:hidden;
     -webkit-mask-image:linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
     mask-image:linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
   }
   .logo-track{display:flex;align-items:center;width:max-content;animation:logoScroll 150s linear infinite;}
-  .logo-track{display:flex;align-items:center;width:max-content;animation:logoScroll 120s linear infinite;}
   .logo-marquee:hover .logo-track{animation-play-state:paused;}
   .logo-cell{
     flex:0 0 auto;display:flex;align-items:center;justify-content:center;
-    height:130px;padding:0 40px;border-right:1px solid var(--n-300);
-    height:130px;padding:0 40px;
+    height:90px;padding:0 28px;
   }
-  .logo-cell img{max-height:90px;max-width:180px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.6;transition:opacity .3s ease, filter .3s ease;}
+  .logo-cell img{height:32px;width:auto;max-width:120px;object-fit:contain;filter:grayscale(1);opacity:.6;transition:opacity .3s ease, filter .3s ease;}
   .logo-cell:hover img{filter:grayscale(0);opacity:1;}
   .logo-cell.text-only{font-size:14px;letter-spacing:.03em;color:var(--n-600);font-weight:500;text-align:center;white-space:nowrap;transition:color .3s ease;}
   .logo-cell.text-only:hover{color:var(--n-800);}
   @keyframes logoScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
   .logo-disclaimer{color:var(--n-500);font-size:12px;margin-top:22px;}
   @media(max-width:767px){
-    .logo-cell{height:100px;padding:0 24px;}
-    .logo-cell img{max-height:50px;max-width:200px;}
-    .logo-cell.text-only{font-size:20.5px;}
+    .logo-cell{height:64px;padding:0 16px;}
+    .logo-cell img{height:22px;max-width:90px;}
+    .logo-cell.text-only{font-size:11.5px;}
   }
   @media (prefers-reduced-motion: reduce){ .logo-track{animation:none;} }
 
@@ -290,21 +250,6 @@
   }
   .service-card:hover{transform:translateY(4px);}
   .service-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .6s cubic-bezier(.25,.46,.45,.94);}
-      .services-grid .service-card:nth-child(1) img,
-      .services-grid .service-card:nth-child(7) img{
-        object-position:top;
-        transform:scale(1.25);
-      }
-      .services-grid .service-card:nth-child(3) img{
-        object-position:bottom ;
-        transform:scale(1.25);
-}
-.services-grid .service-card:nth-child(1):hover img,
-.services-grid .service-card:nth-child(3):hover img,
-.services-grid .service-card:nth-child(7):hover img{
-  transform:scale(1.30);
-}
-
   .service-card:hover img{transform:scale(1.06);}
   .service-card .grad{position:absolute;inset:0;z-index:1;background:linear-gradient(to top, rgba(0,0,0,.88), rgba(0,0,0,.25) 45%, transparent);}
   .service-card .content{position:relative;z-index:2;padding:26px;}
@@ -312,6 +257,21 @@
   .service-card h3{color:var(--n-100);font-size:18px;margin-bottom:4px;}
   .service-card h4{color:rgba(255,255,255,.75);font-size:12.5px;margin-bottom:8px;}
   .service-card p{font-size:13.5px;color:rgba(255,255,255,.85);}
+
+  .services-grid .service-card:nth-child(1) img,
+  .services-grid .service-card:nth-child(7) img{
+    object-position:top;
+    transform:scale(1.15);
+  }
+  .services-grid .service-card:nth-child(3) img{
+    object-position:bottom;
+    transform:scale(1.15);
+  }
+  .services-grid .service-card:nth-child(1):hover img,
+  .services-grid .service-card:nth-child(3):hover img,
+  .services-grid .service-card:nth-child(7):hover img{
+    transform:scale(1.24);
+  }
 
   /* PROJECTS */
   .featured{margin-bottom:56px;max-width:760px;}
@@ -419,8 +379,6 @@
   }
   @media(max-width:991px){
     .hero-grid{padding-left:48px;grid-template-columns:1fr;}
-    .about-row{grid-template-columns:1fr;}
-    .about-images{min-height:320px;}
     .about-top{grid-template-columns:1fr;}
     .about-top .btns{justify-self:start;}
     .lang-copy{grid-template-columns:1fr;}
@@ -438,7 +396,7 @@
     .burger{display:flex;}
     .logo-img{height:56px;}
     .logo{margin-left:0;}
-    .hero{justify-content:flex-start !important;padding-top:100px !important;}
+    .hero{justify-content:flex-start !important;padding-top:110px !important;}
     section{padding:100px 0;}
     .hero-grid{padding-left:24px;border-left:none;}
     .portfolio-item{min-height:auto;padding:20px 0;}
@@ -448,11 +406,9 @@
     .services-grid{grid-template-columns:1fr;}
     .steps{grid-template-columns:1fr;}
     .footer-mid{padding:90px 0;}
-
   }
   @media(max-width:480px){
     .container{padding:0 18px;}
-    .about-images{min-height:240px;}
     section{padding:80px 0;}
     .logo{font-size:15px;}
     .logo-img{height:44px;}
@@ -482,9 +438,7 @@
     .hero-inner > *{opacity:1 !important;transform:none !important;animation:none !important;}
   }
 
-  /* SCROLL-REVEAL — visible by default; only hidden-then-fades-in once JS confirms it can run.
-     This guarantees content (incl. the services carousel and contact form) is never stuck
-     invisible on a device/browser where the reveal script fails to initialise. */
+  /* SCROLL-REVEAL */
   .reveal, .reveal-child{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.25,.46,.45,.94), transform .7s cubic-bezier(.25,.46,.45,.94);}
   html.js-anim .reveal{opacity:0;transform:translateY(24px);}
   html.js-anim .reveal.in-view{opacity:1;transform:translateY(0);}
@@ -525,7 +479,6 @@
   html[data-theme="dark"] .service-card{background:var(--dm-surface);}
   html[data-theme="dark"] .logo-wall-intro{color:var(--dm-text);}
   html[data-theme="dark"] .logo-marquee{border-color:var(--dm-line);}
-  html[data-theme="dark"] .logo-cell{border-color:var(--dm-line);}
   html[data-theme="dark"] .logo-cell img{filter:grayscale(1) invert(1);opacity:.55;}
   html[data-theme="dark"] .logo-cell:hover img{opacity:1;}
   html[data-theme="dark"] .logo-cell.text-only{color:var(--dm-text);}
@@ -540,13 +493,9 @@
   html[data-theme="dark"] .contact-link-item .value:hover{color:var(--dm-accent);}
   html[data-theme="dark"] .social-links a{border-color:var(--dm-line);color:var(--dm-text);}
   html[data-theme="dark"] .social-links a:hover{border-color:var(--dm-accent);background:var(--dm-accent);color:#0b0b0e;}
-  html[data-theme="dark"] .contact-link-item .value:hover{color:var(--dm-accent);}
-  html[data-theme="dark"] .social-links a{border-color:var(--dm-line);color:var(--dm-text);}
-  html[data-theme="dark"] .social-links a:hover{border-color:var(--dm-accent);background:var(--dm-accent);color:#0b0b0e;}
   html[data-theme="dark"] .social-links img{filter:invert(1);}
   .social-links a:hover img{filter:invert(1);}
   html[data-theme="dark"] .social-links a:hover img{filter:invert(0);}
-  html[data-theme="dark"] form label{color:var(--dm-ink);}
   html[data-theme="dark"] form label{color:var(--dm-ink);}
   html[data-theme="dark"] form input, html[data-theme="dark"] form select, html[data-theme="dark"] form textarea{color:var(--dm-ink);border-color:var(--dm-line);}
   html[data-theme="dark"] form select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6'><path d='M0 0L5 6L10 0' fill='none' stroke='%23c7d0da'/></svg>");}
@@ -606,9 +555,7 @@
 </div>
 
 <!-- HERO-->
-<section class="hero" id="top" style="padding:3px;">
-  <img class="hero-bg-video" src="img/work/service-set-construction-hero.jpg" alt="">
-  <div class="hero-bg-overlay"></div>
+<section class="hero" id="top" style="padding:0;">
   <div class="hero-grid">
     <div class="hero-inner">
       <div class="subtitle-wrap white">
@@ -623,7 +570,15 @@
         <a href="#projects" class="btn-secondary dark" data-fr="Projets sélectionnés">Selected projects</a>
       </div>
     </div>
+    <div class="hero-video-box">
+      <video autoplay muted loop playsinline poster="logo/logo-2-black.jpg">
+        <source src="video/about.webm" type="video/webm">
+      </video>
+    </div>
   </div>
+  <a href="#about" class="scroll-down" aria-label="Scroll down" data-fr-aria="Défiler vers le bas">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 4v16m0 0l-6-6m6 6l6-6" stroke="#fff" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
 </section>
 
 <!-- ABOUT / BILINGUAL -->
@@ -635,11 +590,6 @@
     </div>
 
     <div class="about-row reveal">
-      <div class="about-images">
-        <video class="img-back" autoplay muted loop playsinline>
-          <source src="video/about.webm" type="video/webm">
-        </video>
-      </div>
       <div class="about-text-col">
         <div class="about-top">
           <h2><span data-fr="Plusieurs langues. Unis par une vision.">Many languages. United by vision.</span></h2>
@@ -787,7 +737,7 @@
         <div class="logo-cell" aria-hidden="true"><img src="img/logos-clients/primevideo.png" alt=""></div>
       </div>
     </div>
-    <p class="logo-disclaimer" data-fr="Toutes les marques appartiennent à leurs propriétaires respectifs. Affichées uniquement à des fins d&#39;historique de projets et d&#39;identification de portfolio ; aucune approbation n&#39;est sous-entendue.">All trademarks belong to their respective owners. Displayed for project-history and portfolio identification only. No endorsement is implied.</p>
+    <p class="logo-disclaimer" data-fr="Toutes les marques appartiennent à leurs propriétaires respectifs. Affichées uniquement à des fins d&#39;historique de projets et d&#39;identification de portfolio ; aucune approbation n&#39;est sous-entendue.">All trademarks belong to their respective owners. Displayed for project-history and portfolio identification only; no endorsement is implied.</p>
   </div>
 </section>
 
@@ -809,7 +759,7 @@
     <div class="services-grid reveal-stagger">
       <div class="service-card reveal-child"><img loading="lazy" src="img/work/service-custom-props.jpg" alt="Custom Props"><div class="grad"></div><div class="content"><span class="num">01</span><h3 data-fr="Accessoires sur mesure">Custom Props</h3><h4>Accessoires sur mesure</h4><p data-fr="Accessoires, miniatures et objets surdimensionnés pour la caméra, les événements et l&#39;interaction avec le public.">Hero props, miniatures and oversized objects for camera, events and public interaction.</p></div></div>
       <div class="service-card reveal-child offset"><img loading="lazy" src="img/work/service-set-construction.jpg" alt="Set Construction"><div class="grad"></div><div class="content"><span class="num">02</span><h3 data-fr="Construction de décors">Set Construction</h3><h4>Construction de décors</h4><p data-fr="Décors pour le cinéma, la télévision, la publicité et les événements en direct — des plans jusqu&#39;à l&#39;installation.">Film, television, commercial and live-event sets — drawings through installation.</p></div></div>
-      <div class="service-card reveal-child"><img loading="lazy" src="img/work/service-special-effects.JPG" alt="Special Effects"><div class="grad"></div><div class="content"><span class="num">03</span><h3 data-fr="Effets spéciaux">Special Effects</h3><h4>Effets spéciaux</h4><p data-fr="Effets pratiques et atmosphériques planifiés en fonction de la caméra et du lieu.">Practical and atmospheric effects planned around camera and venue.</p></div></div>
+      <div class="service-card reveal-child"><img loading="lazy" src="img/work/service-special-effects.jpg" alt="Special Effects"><div class="grad"></div><div class="content"><span class="num">03</span><h3 data-fr="Effets spéciaux">Special Effects</h3><h4>Effets spéciaux</h4><p data-fr="Effets pratiques et atmosphériques planifiés en fonction de la caméra et du lieu.">Practical and atmospheric effects planned around camera and venue.</p></div></div>
       <div class="service-card reveal-child offset"><img loading="lazy" src="img/work/service-brand-activations-bmo.jpg" alt="Brand Activations"><div class="grad"></div><div class="content"><span class="num">04</span><h3 data-fr="Activations de marque">Brand Activations</h3><h4>Activations de marque</h4><p data-fr="Pop-ups, lancements et environnements de marque conçus pour être partagés.">Shareable pop-ups, launches and branded environments.</p></div></div>
 
       <div class="service-card reveal-child"><img loading="lazy" src="img/work/service-installations.jpg"  alt="Custom Sculpture"><div class="grad"></div><div class="content"><span class="num">05</span><h3 data-fr="Sculpture sur mesure">Custom Sculpture</h3><h4>Sculpture sur mesure</h4><p data-fr="Objets sculpturaux développés par modelage, sculpture et finition.">Sculptural objects developed through modelling, carving and finishing.</p></div></div>
@@ -834,7 +784,7 @@
       <span style="color:var(--n-300);" data-fr="Des univers de marque immersifs aux décors de cinéma et aux sculptures monumentales, chaque détail sert l&#39;idée et le public.">From immersive brand worlds to film sets and monumental sculptural objects, every detail serves the idea and the audience.</span>
     </div>
 
-    <div href="#" class="portfolio-item reveal">
+    <a href="#" class="portfolio-item reveal">
       <img loading="lazy" src="img/work/project-design-stage.jpg" alt="Design">
       <div class="grad"></div>
       <div class="content">
@@ -842,8 +792,8 @@
         <h3 data-fr="Conception">Design</h3>
         <p data-fr="Concept, storyboards et maquettes — la préparation qui transforme une idée en un plan prêt pour la production.">Concept, storyboards and models — the preparation that turns an idea into a production-ready plan.</p>
       </div>
-    </div>
-    <div href="#" class="portfolio-item reveal">
+    </a>
+    <a href="#" class="portfolio-item reveal">
       <img loading="lazy" src="img/work/project-fabricate-gmc.jpg" alt="Fabricate">
       <div class="grad"></div>
       <div class="content">
@@ -851,8 +801,8 @@
         <h3 data-fr="Fabrication">Fabricate</h3>
         <p data-fr="Nos ateliers construisent, finissent et contrôlent la qualité — la production qui donne vie au concept.">Our workshops build, finish and quality-check — the production that brings the concept to life.</p>
       </div>
-    </div>
-    <div href="#" class="portfolio-item reveal" style="margin-bottom:0;">
+    </a>
+    <a href="#" class="portfolio-item reveal" style="margin-bottom:0;">
       <img loading="lazy" src="img/work/project-execution-yyz.jpg" alt="Concept Execution">
       <div class="grad"></div>
       <div class="content">
@@ -860,7 +810,7 @@
         <h3 data-fr="Réalisation du concept">Concept Execution</h3>
         <p data-fr="Livraison, installation et remise finale — l&#39;idée pleinement réalisée sur site.">Delivery, installation and final handover — the idea fully realised on site.</p>
       </div>
-    </div>
+    </a>
   </div>
 </section>
 
@@ -918,9 +868,9 @@
       </div>
     </div>
 
-    <form class="contact-form-wrap reveal" action="https://formsubmit.co/info@cadartdesign.ca" method="POST">
-    <input type="hidden" name="_subject" value="New enquiry from CAD Art Design website">
-    <input type="hidden" name="_template" value="table">
+    <form class="contact-form-wrap reveal" action="https://formsubmit.co/marinastruc@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New enquiry from CAD Art Design website">
+      <input type="hidden" name="_template" value="table">
       <div class="field"><label data-fr="Nom du projet">Project name</label><input required placeholder="Working title" data-fr-placeholder="Titre provisoire" name="project"></div>
       <div class="field"><label data-fr="Votre nom">Your name</label><input required placeholder="Name / company" data-fr-placeholder="Nom / entreprise" name="name"></div>
 
@@ -965,6 +915,7 @@
       <div class="form-actions">
         <button type="submit" data-fr="Envoyer le brief de projet">Send project brief</button>
         <p class="form-privacy" data-fr-html="En envoyant ce brief, vous acceptez que CAD Art Design utilise les informations fournies pour répondre à votre demande. Consultez notre &lt;a href=&quot;privacy-policy.html&quot;&gt;Politique de confidentialité&lt;/a&gt;.">By sending this brief, you agree that CAD Art Design may use the information provided to respond to your enquiry. Read our <a href="privacy-policy.html">Privacy Policy</a>.</p>
+      </div>
     </form>
   </div>
 </section>
@@ -994,19 +945,11 @@
         </ul>
       </div>
     </div>
-    <div class="footer-bottom" data-fr="© 2026 CAD Art Design. Studio de fabrication créative, Toronto, Ontario, Canada.">© 2026 CAD Art Design. Creative fabrication studio, Toronto, Ontario, Canada.
-       <div data-fr="Conception de site web par Digital Marketing Keys">Website Designed & Developed by Digital Marketing Keys – digitalmarketingkeys.ca</div>
-    </div>
+    <div class="footer-bottom" data-fr="© 2026 CAD Art Design. Studio de fabrication créative, Toronto, Ontario, Canada.">© 2026 CAD Art Design. Creative fabrication studio, Toronto, Ontario, Canada.</div>
   </div>
 </footer>
 
 <script>
-  // Each feature is wrapped in its own try/catch so a failure in one block
-  // (e.g. a missing element on some browser) can never stop the rest of the
-  // page's scripts from running — this is what previously made whole
-  // sections (like the services carousel or the contact form) disappear
-  // on some mobile browsers when a single earlier line threw an error.
-
   try {
     const header = document.getElementById('siteHeader');
     if (header){
