@@ -196,7 +196,19 @@
     display:grid;grid-template-columns:1.5fr 1fr;gap:29px;width:100%;max-width:var(--maxw);
     margin:0 auto;padding:0 24px 0 100px;border-left:2px solid var(--n-100);
   }
-  .hero-inner{max-width:600px;}
+  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(320px,.85fr);align-items:center;gap:60px;}\n  .hero-inner{max-width:600px;}
+  .hero-video{
+    align-self:center;
+    width:100%;
+    min-width:0;
+  }
+  .hero-side-video{
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:620px;
+    object-fit:contain;
+  }
   .hero .lead{color:var(--n-100);text-transform:uppercase;letter-spacing:.06em;font-size:14px;margin-top:20px;}
   .hero p.hero-text{max-width:520px;margin-top:16px;color:rgba(255,255,255,.8);}
   .hero .btn-row{margin-top:40px;}
@@ -238,14 +250,9 @@
   .credentials span.num{display:block;font-size:13px;letter-spacing:.08em;color:var(--n-500);margin-bottom:20px;}
   .credentials h3{margin-bottom:12px;}
   .credentials p{font-size:14.5px;color:var(--n-600);}
-
-  /* ABOUT ROW — video + text side by side */
-  .about-row{display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:start;margin-bottom:40px;}
-  .about-images{position:relative;width:100%;min-height:420px;overflow:hidden;background:var(--n-100);}
-  .about-images video.img-back{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
-  html[data-theme="dark"] .about-images{background:var(--dm-bg);border-color:var(--dm-line);}
-  html[data-theme="dark"] .about-images video.img-back{filter:invert(1);}
-  .about-text-col{display:flex;flex-direction:column;gap:24px;}
+  /* ABOUT ROW */
+  .about-row{display:block;margin-bottom:40px;}
+  .about-text-col{max-width:900px;display:flex;flex-direction:column;gap:24px;}
   .about-text-col .about-top{margin-bottom:0;}
   .about-text-col .lang-copy{display:block;grid-template-columns:none;margin-bottom:0;}
   .about-text-col .lang-copy article{width:100%;}
@@ -415,9 +422,10 @@
     .header-cta{gap:10px;}
   }
   @media(max-width:991px){
-    .hero-grid{padding-left:48px;grid-template-columns:1fr;}
+    .hero-grid{padding-left:48px;grid-template-columns:1fr;gap:36px;}
+    .hero-video{width:100%;}
+    .hero-side-video{width:100%;max-height:none;}
     .about-row{grid-template-columns:1fr;}
-    .about-images{min-height:320px;}
     .about-top{grid-template-columns:1fr;}
     .about-top .btns{justify-self:start;}
     .lang-copy{grid-template-columns:1fr;}
@@ -437,7 +445,8 @@
     .logo{margin-left:0;}
     .hero{justify-content:flex-start !important;padding-top:100px !important;}
     section{padding:100px 0;}
-    .hero-grid{padding-left:24px;border-left:none;}
+    .hero-grid{padding-left:24px;border-left:none;gap:28px;}
+    .hero-side-video{max-width:100%;margin:0 auto;}
     .portfolio-item{min-height:auto;padding:20px 0;}
     .portfolio-item .grad{background:linear-gradient(to top, var(--n-800) 30%, rgba(0,0,0,.5));}
     .portfolio-item .content{padding:32px 24px;}
@@ -449,7 +458,6 @@
   }
   @media(max-width:480px){
     .container{padding:0 18px;}
-    .about-images{min-height:240px;}
     section{padding:80px 0;}
     .logo{font-size:15px;}
     .logo-img{height:44px;}
@@ -620,6 +628,12 @@
         <a href="#contact" class="btn-primary white" data-fr="Démarrer un projet">Start a project</a>
         <a href="#projects" class="btn-secondary dark" data-fr="Projets sélectionnés">Selected projects</a>
       </div>
+
+      <div class="hero-video">
+        <video class="hero-side-video" autoplay muted loop playsinline>
+          <source src="video/about.webm" type="video/webm">
+        </video>
+      </div>
     </div>
   </div>
 </section>
@@ -630,15 +644,9 @@
     <div class="subtitle-wrap js-parent reveal">
       <div><span data-fr="Qui sommes-nous ">Who we are</span></div>
       <div class="underline-track js-underline"><div class="underline-fill"></div></div>
-       <div class="about-images">
-        <video class="img-back" autoplay muted loop playsinline>
-          <source src="video/about.webm" type="video/webm">
-        </video>
-  
     </div>
 
     <div class="about-row reveal">
-      </div>
       <div class="about-text-col">
         <div class="about-top">
           <h2><span data-fr="Plusieurs langues. Unis par une vision.">Many languages. United by vision.</span></h2>
