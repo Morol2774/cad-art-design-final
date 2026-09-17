@@ -246,7 +246,7 @@
   .about-text-col .lang-copy article{width:100%;}
 
   /* LOGO WALL — AUTO-SCROLLING CAROUSEL */
-  .logo-wall-intro{max-width:640px;margin:-8px 0 40px;font-size:15px;color:var(--n-600);}
+   .logo-wall-intro{max-width:640px;margin:-8px 0 40px;font-size:15px;color:var(--n-600);}
   .logo-marquee{
     position:relative;overflow:hidden;
     -webkit-mask-image:linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
@@ -258,7 +258,7 @@
     flex:0 0 auto;display:flex;align-items:center;justify-content:center;
     height:90px;padding:0 40px;
   }
-  .logo-cell img{max-height:90px;max-width:180px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.6;transition:opacity .3s ease, filter .3s ease;}
+  .logo-cell img{max-height:120px;max-width:90px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.6;transition:opacity .3s ease, filter .3s ease;}
   .logo-cell:hover img{filter:grayscale(0);opacity:1;}
   .logo-cell.text-only{font-size:14px;letter-spacing:.03em;color:var(--n-600);font-weight:500;text-align:center;white-space:nowrap;transition:color .3s ease;}
   .logo-cell.text-only:hover{color:var(--n-800);}
@@ -266,7 +266,7 @@
   .logo-disclaimer{color:var(--n-500);font-size:12px;margin-top:22px;}
   @media(max-width:767px){
     .logo-cell{height:100px;padding:0 24px;}
-    .logo-cell img{max-height:50px;max-width:200px;}
+    .logo-cell img{max-height:120px;max-width:60px;}
     .logo-cell.text-only{font-size:20.5px;}
   }
   @media (prefers-reduced-motion: reduce){ .logo-track{animation:none;} }
