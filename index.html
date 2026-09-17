@@ -256,18 +256,18 @@
   .logo-marquee:hover .logo-track{animation-play-state:paused;}
   .logo-cell{
     flex:0 0 auto;display:flex;align-items:center;justify-content:center;
-    height:90px;padding:0 28px;
+    height:90px;padding:0 40px;
   }
-  .logo-cell img{max-height:34px;max-width:110px;width:auto;height:auto;object-fit:contain;filter:grayscale(1);opacity:.6;transition:opacity .3s ease, filter .3s ease;}
+  .logo-cell img{max-height:90px;max-width:180px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.6;transition:opacity .3s ease, filter .3s ease;}
   .logo-cell:hover img{filter:grayscale(0);opacity:1;}
   .logo-cell.text-only{font-size:14px;letter-spacing:.03em;color:var(--n-600);font-weight:500;text-align:center;white-space:nowrap;transition:color .3s ease;}
   .logo-cell.text-only:hover{color:var(--n-800);}
   @keyframes logoScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
   .logo-disclaimer{color:var(--n-500);font-size:12px;margin-top:22px;}
   @media(max-width:767px){
-    .logo-cell{height:64px;padding:0 16px;}
-    .logo-cell img{max-height:24px;max-width:90px;width:auto;height:auto;}
-    .logo-cell.text-only{font-size:11.5px;}
+    .logo-cell{height:100px;padding:0 24px;}
+    .logo-cell img{max-height:50px;max-width:200px;}
+    .logo-cell.text-only{font-size:20.5px;}
   }
   @media (prefers-reduced-motion: reduce){ .logo-track{animation:none;} }
 
