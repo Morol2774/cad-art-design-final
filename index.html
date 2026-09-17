@@ -257,7 +257,7 @@
   .logo-marquee:hover .logo-track{animation-play-state:paused;}
   .logo-cell{
     flex:0 0 auto;display:flex;align-items:center;justify-content:center;
-    height:90px;padding:0 40px;
+    height:100px;padding:0 40px;
   }
   .logo-cell img{max-height:100px;max-width:90px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.6;transition:opacity .3s ease, filter .3s ease;}
   .logo-cell:hover img{filter:grayscale(0);opacity:1;}
@@ -412,6 +412,10 @@
     .header-cta{gap:10px;}
   }
   @media(max-width:991px){
+    nav{display:none;}
+    .header-cta .btn-secondary{display:none;}
+    .header-cta .theme-toggle{display:none;}
+    .burger{display:flex;}
     .hero-grid{padding-left:48px;grid-template-columns:1fr;}
     .about-top{grid-template-columns:1fr;}
     .about-top .btns{justify-self:start;}
@@ -424,10 +428,6 @@
     .services-head{grid-template-columns:1fr;}
   }
   @media(max-width:767px){
-    nav{display:none;}
-    .header-cta .btn-secondary{display:none;}
-    .header-cta .theme-toggle{display:none;}
-    .burger{display:flex;}
     .logo-img{height:56px;}
     .logo{margin-left:0;}
     .hero{justify-content:flex-start !important;padding-top:110px !important;}
@@ -788,7 +788,7 @@
     <div class="services-grid reveal-stagger">
       <div class="service-card reveal-child"><img loading="lazy" src="img/work/service-custom-props.jpg" alt="Custom Props"><div class="grad"></div><div class="content"><span class="num">01</span><h3 data-fr="Accessoires sur mesure">Custom Props</h3><h4>Accessoires sur mesure</h4><p data-fr="Accessoires, miniatures et objets surdimensionnés pour la caméra, les événements et l&#39;interaction avec le public.">Hero props, miniatures and oversized objects for camera, events and public interaction.</p></div></div>
       <div class="service-card reveal-child offset"><img loading="lazy" src="img/work/service-set-construction.jpg" alt="Set Construction"><div class="grad"></div><div class="content"><span class="num">02</span><h3 data-fr="Construction de décors">Set Construction</h3><h4>Construction de décors</h4><p data-fr="Décors pour le cinéma, la télévision, la publicité et les événements en direct — des plans jusqu&#39;à l&#39;installation.">Film, television, commercial and live-event sets — drawings through installation.</p></div></div>
-      <div class="service-card reveal-child"><img loading="lazy" src="img/work/service-special-effects.JPG" alt="Special Effects"><div class="grad"></div><div class="content"><span class="num">03</span><h3 data-fr="Effets spéciaux">Special Effects</h3><h4>Effets spéciaux</h4><p data-fr="Effets pratiques et atmosphériques planifiés en fonction de la caméra et du lieu.">Practical and atmospheric effects planned around camera and venue.</p></div></div>
+      <div class="service-card reveal-child"><img loading="lazy" src="img/work/service-special-effects.jpg" alt="Special Effects"><div class="grad"></div><div class="content"><span class="num">03</span><h3 data-fr="Effets spéciaux">Special Effects</h3><h4>Effets spéciaux</h4><p data-fr="Effets pratiques et atmosphériques planifiés en fonction de la caméra et du lieu.">Practical and atmospheric effects planned around camera and venue.</p></div></div>
       <div class="service-card reveal-child offset"><img loading="lazy" src="img/work/service-brand-activations-bmo.jpg" alt="Brand Activations"><div class="grad"></div><div class="content"><span class="num">04</span><h3 data-fr="Activations de marque">Brand Activations</h3><h4>Activations de marque</h4><p data-fr="Pop-ups, lancements et environnements de marque conçus pour être partagés.">Shareable pop-ups, launches and branded environments.</p></div></div>
 
       <div class="service-card reveal-child"><img loading="lazy" src="img/work/service-installations.jpg"  alt="Custom Sculpture"><div class="grad"></div><div class="content"><span class="num">05</span><h3 data-fr="Sculpture sur mesure">Custom Sculpture</h3><h4>Sculpture sur mesure</h4><p data-fr="Objets sculpturaux développés par modelage, sculpture et finition.">Sculptural objects developed through modelling, carving and finishing.</p></div></div>
