@@ -309,7 +309,7 @@
   .featured p.eyebrow{text-transform:uppercase;letter-spacing:.08em;font-size:13px;color:var(--n-500);margin-bottom:16px;}
   .featured span{color:var(--n-600);display:block;margin-top:16px;font-size:15px;}
   .portfolio-item{
-    position:relative;min-height:460px;display:flex;align-items:center;overflow:hidden;color:var(--n-100);margin-bottom:24px;
+    position:relative;min-height:clamp(280px, 45vw, 460px);display:flex;align-items:center;overflow:hidden;color:var(--n-100);margin-bottom:24px;
     transition:transform .3s ease;
     background:#000;
 }
@@ -317,7 +317,7 @@
   transform:scale(0.55);
 }
   .portfolio-item:hover{transform:translateY(4px);}
-  .portfolio-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:transform .7s cubic-bezier(.25,.46,.45,.94);}
+  .portfolio-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0;transition:transform .7s cubic-bezier(.25,.46,.45,.94);}
   .portfolio-item:hover img{transform:scale(1.05);}
   .portfolio-item .grad{
     position:absolute;inset:0;z-index:1;
@@ -434,7 +434,6 @@
     .hero{justify-content:flex-start !important;padding-top:110px !important;}
     section{padding:100px 0;}
     .hero-grid{padding-left:24px;border-left:none;}
-    .portfolio-item{min-height:auto;padding:20px 0;}
     .portfolio-item .grad{background:linear-gradient(to top, var(--n-800) 30%, rgba(0,0,0,.5));}
     .portfolio-item .content{padding:32px 24px;}
     .contact-links{gap:32px;}
