@@ -401,8 +401,9 @@
         </ul>
       </div>
     </div>
-    <div class="footer-bottom" data-fr="© 2026 CAD Art Design. Studio de fabrication créative, Toronto, Ontario, Canada.">© 2026 CAD Art Design. Creative fabrication studio, Toronto, Ontario, Canada.
-      <div data-fr="Conception de site web par Digital Marketing Keys">Website Designed & Developed by Digital Marketing Keys – digitalmarketingkeys.ca</div>
+    <div class="footer-bottom">
+      <div data-fr-html="© <span id='year'></span> CAD Art Design. Studio de fabrication créative, Toronto, Ontario, Canada.">© <span id="year"></span> CAD Art Design. Creative fabrication studio, Toronto, Ontario, Canada.</div>
+      <div data-fr="Conception de site web par Digital Marketing Keys – digitalmarketingkeys.ca">Website Designed & Developed by Digital Marketing Keys – digitalmarketingkeys.ca</div>
     </div>
   </div>
 </footer>
@@ -437,12 +438,23 @@
   try {
     const langButtons = document.querySelectorAll('.lang-toggle button');
 
+    function updateYear(){
+      document.querySelectorAll('#year').forEach(el => {
+        el.textContent = new Date().getFullYear();
+      });
+    }
+
     function setLanguage(lang){
       document.documentElement.setAttribute('lang', lang);
 
       document.querySelectorAll('[data-fr]').forEach(el => {
         if (el.dataset.enOrig === undefined) el.dataset.enOrig = el.textContent;
         el.textContent = lang === 'fr' ? el.dataset.fr : el.dataset.enOrig;
+      });
+
+      document.querySelectorAll('[data-fr-html]').forEach(el => {
+        if (el.dataset.enHtml === undefined) el.dataset.enHtml = el.innerHTML;
+        el.innerHTML = lang === 'fr' ? el.dataset.frHtml : el.dataset.enHtml;
       });
 
       document.querySelectorAll('[data-fr-aria]').forEach(el => {
@@ -455,7 +467,10 @@
       });
 
       localStorage.setItem('cad-lang', lang);
+      updateYear();
     }
+
+    updateYear();
 
     langButtons.forEach(btn => {
       btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
