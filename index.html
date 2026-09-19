@@ -416,8 +416,8 @@
     .header-cta .btn-secondary{display:none;}
     .header-cta .theme-toggle{display:none;}
     .burger{display:flex;}
-    .hero-grid{padding-left:48px;grid-template-columns:1fr;}
-    .about-top{grid-template-columns:1fr;}
+    .logo-img{height:56px;}
+    .logo{margin-left:0;}
     .hero-grid{padding-left:48px;grid-template-columns:1fr;}
     .about-top{grid-template-columns:1fr;}
     .about-top .btns{justify-self:start;}
@@ -432,8 +432,6 @@
   @media(max-width:767px){
     .hero{justify-content:flex-start !important;padding-top:110px !important;}
     section{padding:100px 0;}
-   .logo-img{height:56px;}
-    .logo{margin-left:0;}
     .hero-grid{padding-left:24px;border-left:none;}
     .portfolio-item .grad{background:linear-gradient(to top, var(--n-800) 30%, rgba(0,0,0,.5));}
     .portfolio-item .content{padding:32px 24px;}
@@ -977,7 +975,7 @@ Ukraine, Europe and more.</p>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom" data-fr="© 2026 CAD Art Design. Studio de fabrication créative, Toronto, Ontario, Canada.">© 2026 CAD Art Design. Creative fabrication studio, Toronto, Ontario, Canada.</div>
+    <div class="footer-bottom" data-fr-html="© <span id='year'></span> CAD Art Design. Studio de fabrication créative, Toronto, Ontario, Canada.">© <span id="year"></span> CAD Art Design. Creative fabrication studio, Toronto, Ontario, Canada.</div>
   </div>
 </footer>
 
@@ -1026,6 +1024,12 @@ Ukraine, Europe and more.</p>
   try {
   const langButtons = document.querySelectorAll('.lang-toggle button');
 
+  function updateYear(){
+    document.querySelectorAll('#year').forEach(el => {
+      el.textContent = new Date().getFullYear();
+    });
+  }
+
   function setLanguage(lang){
     document.documentElement.setAttribute('lang', lang);
 
@@ -1054,7 +1058,10 @@ Ukraine, Europe and more.</p>
     });
 
     localStorage.setItem('cad-lang', lang);
+    updateYear();
   }
+
+  updateYear();
 
   langButtons.forEach(btn => {
     btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
